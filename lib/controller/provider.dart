@@ -6,7 +6,7 @@ import 'package:inshort_clone/view/app_base/app_base.dart';
 import 'package:inshort_clone/view/discover_screen/discover.dart';
 
 class FeedProvider extends ChangeNotifier {
-  String _appBarTitle;
+  String _appBarTitle = '';
   int _activeCategory = 1;
   bool _hasDataLoaded = false;
   bool _searchAppBarVisible = true;
@@ -14,15 +14,15 @@ class FeedProvider extends ChangeNotifier {
   bool _watermarkVisible = false;
   bool _feedBottomActionbarVisible = false;
   int _curentArticalIndex = 0;
-  PageController _feedPageController;
-  PageController _screenController;
+  late PageController _feedPageController;
+  late PageController _screenController;
   List<Widget> _baseScreen = [
     DiscoverScreen(),
     BuildNewsScreen(),
   ];
   String _newsURL = "https://google.com/";
   bool _webviwAdded = false;
-  List<String> _lastGetRequest = List<String>();
+  List<String> _lastGetRequest = [];
 
   //
 

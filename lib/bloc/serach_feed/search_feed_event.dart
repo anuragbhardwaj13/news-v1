@@ -8,7 +8,7 @@ abstract class SearchFeedEvent extends Equatable {}
 
 class FetchNewsBySearchQueryEvent extends SearchFeedEvent {
   final String query;
-  FetchNewsBySearchQueryEvent({@required this.query});
+  FetchNewsBySearchQueryEvent({required this.query});
 
   List<Object> get props => [query];
 }

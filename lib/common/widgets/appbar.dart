@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:feather_icons_flutter/feather_icons_flutter.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +19,7 @@ import 'package:inshort_clone/style/text_style.dart';
 
 class CustomAppBar extends StatelessWidget {
   final int index;
-  const CustomAppBar({Key key, this.index = 1}) : super(key: key);
+  const CustomAppBar({Key? key, this.index = 1}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

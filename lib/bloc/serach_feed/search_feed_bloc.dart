@@ -12,7 +12,7 @@ import 'search_feed_state.dart';
 
 class SearchFeedBloc extends Bloc<SearchFeedEvent, SearchFeedState> {
   NewsFeedRepository repository;
-  SearchFeedBloc({@required this.repository});
+  SearchFeedBloc({required this.repository}) : super(SearchFeedInitialState());
 
   @override
   SearchFeedState get initialState => SearchFeedInitialState();

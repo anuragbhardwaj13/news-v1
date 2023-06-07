@@ -5,34 +5,35 @@ import 'package:dio/dio.dart';
 import 'package:inshort_clone/global/global.dart';
 
 class GetDio {
-  bool loggedIn;
+  late bool loggedIn;
   GetDio._();
 
   static Dio getDio() {
-    Dio dio = new Dio();
+    Dio dio = Dio();
     dio.interceptors.add(
       InterceptorsWrapper(
-        onRequest: (RequestOptions options) async {
-          options.connectTimeout = 90000;
-          options.receiveTimeout = 90000;
-          options.sendTimeout = 90000;
+        onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
+          options.connectTimeout = const Duration(milliseconds: 90000);
+          options.receiveTimeout = const Duration(milliseconds: 90000);
+          options.sendTimeout = const Duration(milliseconds: 90000);
           options.followRedirects = true;
           options.baseUrl = "http://newsapi.org/v2/";
           options.headers["X-Api-Key"] = "${Global.apikey}";
 
-          return options;
+          return handler.next(options);
         },
-        onResponse: (Response response) async {
-          return response;
+        onResponse: (Response response, ResponseInterceptorHandler handler) {
+          return handler.next(response);
         },
-        onError: (DioError dioError) async {
-          if (dioError.type == DioErrorType.DEFAULT) {
-            if (dioError.message.contains('SocketException')) {
+        onError: (DioException dioError, ErrorInterceptorHandler handler) {
+          if (dioError.type == DioExceptionType.unknown) {
+            if (dioError.type == DioExceptionType.connectionError) {
               print("no internet");
             }
           }
 
-          return dioError.response; //continue
+          throw DioException(
+              requestOptions: dioError.requestOptions, error: dioError.error);
         },
       ),
     );

@@ -4,30 +4,28 @@ import 'package:hive/hive.dart';
 part 'news_model.g.dart';
 
 class NewsModel {
-  String status;
-  int totalResults;
-  List<Articles> articles;
+  late String? status;
+  late int totalResults;
+  late List<Articles> articles;
 
-  NewsModel({this.status, this.totalResults, this.articles});
-
+  NewsModel({
+    required this.status,
+    required this.totalResults,
+    required this.articles,
+  });
   NewsModel.fromJson(Map<String, dynamic> json) {
-    status = json['status'];
+    status = json['status'] ?? '';
     totalResults = json['totalResults'];
-    if (json['articles'] != null) {
-      articles = new List<Articles>();
-      json['articles'].forEach((v) {
-        articles.add(new Articles.fromJson(v));
-      });
-    }
+    articles = (json['articles'] as List<dynamic>)
+        .map((v) => Articles.fromJson(v))
+        .toList();
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['status'] = this.status;
     data['totalResults'] = this.totalResults;
-    if (this.articles != null) {
-      data['articles'] = this.articles.map((v) => v.toJson()).toList();
-    }
+    data['articles'] = this.articles.map((v) => v.toJson()).toList();
     return data;
   }
 }
@@ -35,36 +33,36 @@ class NewsModel {
 @HiveType(typeId: 101)
 class Articles {
   @HiveField(0)
-  String sourceName;
+  late String? sourceName;
   @HiveField(1)
-  String author;
+  late String author;
   @HiveField(2)
-  String title;
+  late String title;
   @HiveField(3)
-  String description;
+  late String description;
   @HiveField(4)
-  String url;
+  late String url;
   @HiveField(5)
-  String urlToImage;
+  late String urlToImage;
   @HiveField(6)
-  String publishedAt;
+  late String publishedAt;
   @HiveField(7)
-  String content;
+  late String content;
 
-  Articles(
-      {this.sourceName,
-      this.author,
-      this.title,
-      this.description,
-      this.url,
-      this.urlToImage,
-      this.publishedAt,
-      this.content});
+  Articles({
+    required this.sourceName,
+    required this.author,
+    required this.title,
+    required this.description,
+    required this.url,
+    required this.urlToImage,
+    required this.publishedAt,
+    required this.content,
+  });
 
   Articles.fromJson(Map<String, dynamic> json) {
-    sourceName = json['source'] != null
-        ? new Source.fromJson(json['source']).name
-        : null;
+    sourceName =
+        (json['source'] != null) ? Source.fromJson(json['source']).name : '';
     author = json['author'];
     title = json['title'];
     description = json['description'];
@@ -94,12 +92,11 @@ class Source {
   String id;
   String name;
 
-  Source({this.id, this.name});
+  Source({required this.id, required this.name});
 
-  Source.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    name = json['name'];
-  }
+  Source.fromJson(Map<String, dynamic> json)
+      : id = json['id'] ?? '',
+        name = json['name'] ?? '';
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();

@@ -2,12 +2,12 @@
 import 'dart:async';
 
 class FeedController {
-  static StreamController _currentPage = StreamController<int>.broadcast();
-  static StreamController _currentArticleIndex =
+  static StreamController<int> _currentPage = StreamController<int>.broadcast();
+  static StreamController<int> _currentArticleIndex =
       StreamController<int>.broadcast();
 
-  static Stream<int> get _currentPageStream => _currentPage.stream;
-  static Stream<int> get _currentArticleIndexStream =>
+  static Stream<dynamic> get _currentPageStream => _currentPage.stream;
+  static Stream<dynamic> get _currentArticleIndexStream =>
       _currentArticleIndex.stream;
 
   static void addCurrentPage(int page) {
