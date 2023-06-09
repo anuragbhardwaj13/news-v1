@@ -12,7 +12,7 @@ class TopicCard extends StatelessWidget {
   final String title;
   final Function onTap;
 
-  const TopicCard({Key key, this.icon, this.title, this.onTap})
+  const TopicCard({Key? key,required this.icon,required this.title,required this.onTap})
       : super(key: key);
   @override
   Widget build(BuildContext context) {

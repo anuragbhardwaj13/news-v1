@@ -1,6 +1,5 @@
 // Package imports:
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
 
 // Project imports:
 import 'package:inshort_clone/model/news_model.dart';

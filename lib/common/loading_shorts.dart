@@ -40,7 +40,7 @@ class LoadingShorts extends StatelessWidget {
                     height: 8,
                   ),
                   Text(
-                    AppLocalizations.of(context).translate('loading_message'),
+                    AppLocalizations.of(context)!.translate('loading_message'),
                     style: AppTextStyle.loading,
                   ),
                 ],

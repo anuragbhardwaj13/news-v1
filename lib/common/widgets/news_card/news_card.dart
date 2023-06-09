@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 // Package imports:
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +17,6 @@ import 'package:inshort_clone/controller/provider.dart';
 import 'package:inshort_clone/controller/settings.dart';
 import 'package:inshort_clone/global/global.dart';
 import 'package:inshort_clone/model/news_model.dart';
-import 'package:inshort_clone/routes/rouut.dart';
 import 'package:inshort_clone/services/news/offline_service.dart';
 import 'package:inshort_clone/style/colors.dart';
 import 'package:inshort_clone/style/text_style.dart';
@@ -173,7 +171,7 @@ class NewsCard extends StatelessWidget {
                                     height: 16,
                                   ),
                                   Text(
-                                    "${AppLocalizations.of(context).translate("swipe_message")} ${article.sourceName} / ${DateFormat("MMMM d").format(
+                                    "${AppLocalizations.of(context)!.translate("swipe_message")} ${article.sourceName} / ${DateFormat("MMMM d").format(
                                       DateTime.parse(article.publishedAt),
                                     )}",
                                     style: AppTextStyle.newsFooter,

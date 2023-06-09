@@ -104,8 +104,8 @@ class NewsFeedRepositoryImpl implements NewsFeedRepository {
 
     if (hiveBox.length > 0) {
       for (int i = 0; i < hiveBox.length; i++) {
-        Articles article = hiveBox.getAt(i);
-        articles.add(article);
+        Articles? article = hiveBox.getAt(i);
+        articles.add(article!);
       }
       provider.setDataLoaded(true);
 

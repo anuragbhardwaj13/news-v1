@@ -8,7 +8,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 // Package imports:
-import 'package:esys_flutter_share/esys_flutter_share.dart';
+import 'package:esys_flutter_share_plus/esys_flutter_share_plus.dart';
 import 'package:provider/provider.dart';
 
 // Project imports:
@@ -18,8 +18,8 @@ void convertWidgetToImageAndShare(BuildContext context, containerKey) async {
   RenderRepaintBoundary renderRepaintBoundary =
       containerKey.currentContext.findRenderObject();
   ui.Image boxImage = await renderRepaintBoundary.toImage(pixelRatio: 1);
-  ByteData byteData = await boxImage.toByteData(format: ui.ImageByteFormat.png);
-  Uint8List uInt8List = byteData.buffer.asUint8List();
+  ByteData? byteData = await boxImage.toByteData(format: ui.ImageByteFormat.png);
+  Uint8List uInt8List = byteData!.buffer.asUint8List();
   try {
     await Share.file(
         'imsanjaysoni/InshortClone', 'inshortClone.png', uInt8List, 'image/png',

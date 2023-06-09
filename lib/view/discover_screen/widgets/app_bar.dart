@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:feather_icons_flutter/feather_icons_flutter.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 // Project imports:
 import 'package:inshort_clone/aplication_localization.dart';
@@ -34,7 +34,7 @@ appSearchBar(context) {
               ),
               SizedBox(width: 16),
               Text(
-                AppLocalizations.of(context).translate("search_message"),
+                AppLocalizations.of(context)!.translate("search_message"),
                 style: TextStyle(
                   color: AppColor.iconGrey,
                   fontWeight: FontWeight.w500,

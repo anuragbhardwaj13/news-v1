@@ -5,7 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:feather_icons_flutter/feather_icons_flutter.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:provider/provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -19,7 +19,9 @@ class WebScreen extends StatefulWidget {
   final PageController pageController;
 
   WebScreen(
-      {@required this.url, @required this.isFromBottom, this.pageController});
+      {required this.url,
+      required this.isFromBottom,
+      required this.pageController});
 
   @override
   _WebScreenState createState() => _WebScreenState();
@@ -57,7 +59,7 @@ class _WebScreenState extends State<WebScreen> {
                   AsyncSnapshot<WebViewController> snapshot) {
                 final bool webViewReady =
                     snapshot.connectionState == ConnectionState.done;
-                final WebViewController controller = snapshot.data;
+                final WebViewController? controller = snapshot.data;
                 return IconButton(
                   icon: const Icon(Icons.replay),
                   onPressed: !webViewReady
@@ -66,7 +68,7 @@ class _WebScreenState extends State<WebScreen> {
                           setState(() {
                             loading = true;
                           });
-                          controller.reload();
+                          controller!.reload();
                         },
                 );
               }),

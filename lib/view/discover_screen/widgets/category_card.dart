@@ -14,7 +14,7 @@ class CategoryCard extends StatelessWidget {
   final bool active;
 
   const CategoryCard(
-      {Key key, this.icon, this.title, this.onTap, this.active = false})
+      {Key? key, required this.icon, required this.title,required this.onTap, this.active = false})
       : super(key: key);
 
   @override

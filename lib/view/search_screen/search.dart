@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Package imports:
-import 'package:feather_icons_flutter/feather_icons_flutter.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
@@ -30,7 +30,7 @@ class SearchScreen extends StatelessWidget {
             style: AppTextStyle.searchbar,
             decoration: InputDecoration(
               hintText:
-                  AppLocalizations.of(context).translate("search_message"),
+                  AppLocalizations.of(context)!.translate("search_message"),
               border: InputBorder.none,
               suffixIcon: IconButton(
                 icon: Icon(
@@ -67,7 +67,7 @@ class SearchScreen extends StatelessWidget {
                     CircularProgressIndicator(),
                     SizedBox(height: 16),
                     Text(
-                      AppLocalizations.of(context).translate("loading_message"),
+                      AppLocalizations.of(context)!.translate("loading_message"),
                       style: AppTextStyle.searchbar,
                     )
                   ]));
@@ -75,7 +75,7 @@ class SearchScreen extends StatelessWidget {
               if (state.news.length == 0) {
                 return Center(
                     child: Text(
-                  "${AppLocalizations.of(context).translate("not_found")}\n",
+                  "${AppLocalizations.of(context)!.translate("not_found")}\n",
                   style: AppTextStyle.newsTitle,
                 ));
               }
@@ -98,12 +98,12 @@ class SearchScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      AppLocalizations.of(context).translate('error'),
+                      AppLocalizations.of(context)!.translate('error'),
                       style: AppTextStyle.newsTitle,
                     ),
                     SizedBox(height: 8),
                     Text(
-                      AppLocalizations.of(context).translate('error_message'),
+                      AppLocalizations.of(context)!.translate('error_message'),
                       style: AppTextStyle.searchbar,
                       textAlign: TextAlign.center,
                     )

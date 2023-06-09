@@ -25,8 +25,8 @@ class AppBase extends StatefulWidget {
 
 class _AppBaseState extends State<AppBase> with AutomaticKeepAliveClientMixin {
   int currentPage = 1;
-  PageController _pageController;
-  FeedProvider provider;
+  late PageController _pageController;
+  late FeedProvider provider;
 
   @override
   void initState() {
@@ -63,7 +63,7 @@ class _AppBaseState extends State<AppBase> with AutomaticKeepAliveClientMixin {
             PageView(
               controller: _pageController,
               onPageChanged: (page) {
-                currentPage = _pageController.page.round();
+                currentPage = _pageController.page!.round();
                 if (currentPage == 2) {
                   value.setAppBarVisible(false);
                 } else {
@@ -105,7 +105,7 @@ class BuildNewsScreen extends StatelessWidget {
           if (state.news.length == 0) {
             return Center(
               child: Text(
-                "${AppLocalizations.of(context).translate('not_found')}\n",
+                "${AppLocalizations.of(context)!.translate('not_found')}\n",
                 style: AppTextStyle.newsTitle,
               ),
             );
@@ -116,6 +116,7 @@ class BuildNewsScreen extends StatelessWidget {
               WebScreen(
                 url: provider.getNewsURL,
                 isFromBottom: false,
+                pageController: PageController(),
               ),
             );
           }
@@ -136,12 +137,12 @@ class BuildNewsScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  AppLocalizations.of(context).translate('error'),
+                  AppLocalizations.of(context)!.translate('error'),
                   style: AppTextStyle.newsTitle,
                 ),
                 SizedBox(height: 8),
                 Text(
-                  AppLocalizations.of(context).translate('error_message'),
+                  AppLocalizations.of(context)!.translate('error_message'),
                   style: AppTextStyle.searchbar,
                   textAlign: TextAlign.center,
                 )

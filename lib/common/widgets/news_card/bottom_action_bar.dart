@@ -1,10 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 // Package imports:
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -37,7 +35,7 @@ class BottomActionBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           actionButton(
-            title: AppLocalizations.of(context).translate("share"),
+            title: AppLocalizations.of(context)!.translate("share"),
             icon: FeatherIcons.share2,
             onTap: () {
               Provider.of<FeedProvider>(context, listen: false)
@@ -50,7 +48,7 @@ class BottomActionBar extends StatelessWidget {
           WatchBoxBuilder(
             box: Hive.box<Articles>('bookmarks'),
             builder: (context, snap) => actionButton(
-              title: AppLocalizations.of(context).translate("bookmark"),
+              title: AppLocalizations.of(context)!.translate("bookmark"),
               icon: snap.containsKey(articles.url)
                   ? Icons.bookmark
                   : FeatherIcons.bookmark,

@@ -1,21 +1,12 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
-
-// Project imports:
 import 'package:inshort_clone/style/colors.dart';
 
 final ThemeData kDarkThemeData = ThemeData(
   brightness: Brightness.dark,
   scaffoldBackgroundColor: Color(0xff222222),
-  accentColorBrightness: Brightness.dark,
   primaryColor: AppColor.accent,
-  accentIconTheme: IconThemeData(
-    color: AppColor.accent,
-  ),
-  accentColor: AppColor.accent,
   appBarTheme: AppBarTheme(
     color: Color(0xff333333),
-    brightness: Brightness.dark,
     iconTheme: IconThemeData(
       color: AppColor.accent,
     ),
@@ -28,17 +19,17 @@ final ThemeData kDarkThemeData = ThemeData(
 
 final ThemeData kLightThemeData = ThemeData(
   canvasColor: AppColor.background,
-  accentColor: AppColor.accent,
-  errorColor: AppColor.error,
-  cursorColor: AppColor.primaryVariant,
+  colorScheme: ColorScheme.light(
+    primary: AppColor.accent,
+    onPrimary: Colors.white,
+    error: AppColor.error,
+  ),
   scaffoldBackgroundColor: Colors.white,
-  brightness: Brightness.light,
   iconTheme: IconThemeData(
     color: AppColor.accent,
   ),
   appBarTheme: AppBarTheme(
     color: Colors.white,
-    brightness: Brightness.light,
     iconTheme: IconThemeData(
       color: AppColor.accent,
     ),

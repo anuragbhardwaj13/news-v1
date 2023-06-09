@@ -1,5 +1,4 @@
 // Flutter imports:
-import 'package:flutter/cupertino.dart';
 
 // Package imports:
 import 'package:bloc/bloc.dart';
@@ -14,10 +13,8 @@ class NewsFeedBloc extends Bloc<NewsFeedEvent, NewsFeedState> {
   NewsFeedRepository repository;
   NewsFeedBloc({required this.repository}) : super(NewsFeedInitialState());
 
-  @override
   NewsFeedState get initialState => NewsFeedInitialState();
 
-  @override
   Stream<NewsFeedState> mapEventToState(NewsFeedEvent event) async* {
     if (event is FetchNewsByCategoryEvent) {
       yield NewsFeedLoadingState();

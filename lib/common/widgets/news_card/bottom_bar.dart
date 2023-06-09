@@ -3,7 +3,6 @@ import 'dart:ui';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 // Package imports:
 import 'package:cached_network_image/cached_network_image.dart';
@@ -25,8 +24,11 @@ class BottomBar extends StatelessWidget {
       onTap: () => Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) =>
-              WebScreen(url: articles.url, isFromBottom: true),
+          builder: (context) => WebScreen(
+            url: articles.url,
+            isFromBottom: true,
+            pageController: PageController(),
+          ),
         ),
       ),
       child: Container(
@@ -75,7 +77,7 @@ class BottomBar extends StatelessWidget {
                     height: 4,
                   ),
                   Text(
-                    AppLocalizations.of(context).translate("tap_message"),
+                    AppLocalizations.of(context)!.translate("tap_message"),
                     style: AppTextStyle.newsBottomSubtitle,
                     overflow: TextOverflow.fade,
                   ),

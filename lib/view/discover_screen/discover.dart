@@ -44,7 +44,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
             SizedBox(
               height: 16,
             ),
-            headLine(AppLocalizations.of(context).translate("categories")),
+            headLine(AppLocalizations.of(context)!.translate("categories")),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: SingleChildScrollView(
@@ -54,13 +54,13 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     children: <Widget>[
                       CategoryCard(
                         title:
-                            AppLocalizations.of(context).translate("my_feed"),
+                            AppLocalizations.of(context)!.translate("my_feed"),
                         icon: "all",
                         active: provider.getActiveCategory == 1,
                         onTap: () {
                           provider.setActiveCategory(1);
                           provider.setAppBarTitle(AppLocalizations.of(context)
-                              .translate("my_feed"));
+                              !.translate("my_feed"));
 
                           bloc.add(
                             FetchNewsByCategoryEvent(category: "general"),
@@ -69,13 +69,13 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       ),
                       CategoryCard(
                         title:
-                            AppLocalizations.of(context).translate("trending"),
+                            AppLocalizations.of(context)!.translate("trending"),
                         icon: "trending",
                         active: provider.getActiveCategory == 2,
                         onTap: () {
                           provider.setActiveCategory(2);
                           provider.setAppBarTitle(AppLocalizations.of(context)
-                              .translate("trending"));
+                              !.translate("trending"));
 
                           bloc.add(
                             FetchNewsByTopicEvent(topic: "trending"),
@@ -84,13 +84,13 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       ),
                       CategoryCard(
                         title:
-                            AppLocalizations.of(context).translate("bookmark"),
+                            AppLocalizations.of(context)!.translate("bookmark"),
                         icon: "bookmark",
                         active: provider.getActiveCategory == 3,
                         onTap: () {
                           provider.setActiveCategory(3);
                           provider.setAppBarTitle(AppLocalizations.of(context)
-                              .translate("bookmark"));
+                              !.translate("bookmark"));
 
                           bloc.add(
                             FetchNewsFromLocalStorageEvent(box: 'bookmarks'),
@@ -99,13 +99,13 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       ),
                       CategoryCard(
                         title:
-                            AppLocalizations.of(context).translate("unreads"),
+                            AppLocalizations.of(context)!.translate("unreads"),
                         icon: "unread",
                         active: provider.getActiveCategory == 4,
                         onTap: () {
                           provider.setActiveCategory(4);
                           provider.setAppBarTitle(AppLocalizations.of(context)
-                              .translate("unreads"));
+                              !.translate("unreads"));
 
                           bloc.add(
                             FetchNewsFromLocalStorageEvent(box: 'unreads'),
@@ -120,7 +120,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
             SizedBox(
               height: 16,
             ),
-            headLine(AppLocalizations.of(context).translate("sugested_topics")),
+            headLine(AppLocalizations.of(context)!.translate("sugested_topics")),
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: GridView.count(
@@ -131,11 +131,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                 children: <Widget>[
                   TopicCard(
                     title:
-                        AppLocalizations.of(context).translate("coronavirus"),
+                        AppLocalizations.of(context)!.translate("coronavirus"),
                     icon: "coronavirus",
                     onTap: () {
                       provider.setAppBarTitle(AppLocalizations.of(context)
-                          .translate("coronavirus"));
+                          !.translate("coronavirus"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByTopicEvent(topic: "coronavirus"),
@@ -143,11 +143,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     },
                   ),
                   TopicCard(
-                    title: AppLocalizations.of(context).translate("india"),
+                    title: AppLocalizations.of(context)!.translate("india"),
                     icon: "india",
                     onTap: () {
                       provider.setAppBarTitle(
-                          AppLocalizations.of(context).translate("india"));
+                          AppLocalizations.of(context)!.translate("india"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByTopicEvent(topic: "india"),
@@ -155,11 +155,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     },
                   ),
                   TopicCard(
-                    title: AppLocalizations.of(context).translate("business"),
+                    title: AppLocalizations.of(context)!.translate("business"),
                     icon: "business",
                     onTap: () {
                       provider.setAppBarTitle(
-                          AppLocalizations.of(context).translate("business"));
+                          AppLocalizations.of(context)!.translate("business"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByCategoryEvent(category: "business"),
@@ -167,11 +167,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     },
                   ),
                   TopicCard(
-                    title: AppLocalizations.of(context).translate("politics"),
+                    title: AppLocalizations.of(context)!.translate("politics"),
                     icon: "politics",
                     onTap: () {
                       provider.setAppBarTitle(
-                          AppLocalizations.of(context).translate("politics"));
+                          AppLocalizations.of(context)!.translate("politics"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByTopicEvent(topic: "politics"),
@@ -179,11 +179,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     },
                   ),
                   TopicCard(
-                    title: AppLocalizations.of(context).translate("sports"),
+                    title: AppLocalizations.of(context)!.translate("sports"),
                     icon: "sports",
                     onTap: () {
                       provider.setAppBarTitle(
-                          AppLocalizations.of(context).translate("sports"));
+                          AppLocalizations.of(context)!.translate("sports"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByCategoryEvent(category: "sports"),
@@ -191,11 +191,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     },
                   ),
                   TopicCard(
-                    title: AppLocalizations.of(context).translate("technology"),
+                    title: AppLocalizations.of(context)!.translate("technology"),
                     icon: "technology",
                     onTap: () {
                       provider.setAppBarTitle(
-                          AppLocalizations.of(context).translate("technology"));
+                          AppLocalizations.of(context)!.translate("technology"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByCategoryEvent(category: "technology"),
@@ -203,11 +203,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     },
                   ),
                   TopicCard(
-                    title: AppLocalizations.of(context).translate("startups"),
+                    title: AppLocalizations.of(context)!.translate("startups"),
                     icon: "startups",
                     onTap: () {
                       provider.setAppBarTitle(
-                          AppLocalizations.of(context).translate("startups"));
+                          AppLocalizations.of(context)!.translate("startups"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByTopicEvent(topic: "startups"),
@@ -216,11 +216,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                   ),
                   TopicCard(
                     title:
-                        AppLocalizations.of(context).translate("entertainment"),
+                        AppLocalizations.of(context)!.translate("entertainment"),
                     icon: "entertainment",
                     onTap: () {
                       provider.setAppBarTitle(AppLocalizations.of(context)
-                          .translate("entertainment"));
+                          !.translate("entertainment"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByCategoryEvent(category: "entertainment"),
@@ -228,11 +228,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     },
                   ),
                   TopicCard(
-                    title: AppLocalizations.of(context).translate("education"),
+                    title: AppLocalizations.of(context)!.translate("education"),
                     icon: "education",
                     onTap: () {
                       provider.setAppBarTitle(
-                          AppLocalizations.of(context).translate("education"));
+                          AppLocalizations.of(context)!.translate("education"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByTopicEvent(topic: "education"),
@@ -240,11 +240,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     },
                   ),
                   TopicCard(
-                    title: AppLocalizations.of(context).translate("automobile"),
+                    title: AppLocalizations.of(context)!.translate("automobile"),
                     icon: "automobile",
                     onTap: () {
                       provider.setAppBarTitle(
-                          AppLocalizations.of(context).translate("automobile"));
+                          AppLocalizations.of(context)!.translate("automobile"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByTopicEvent(topic: "automobile"),
@@ -252,11 +252,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     },
                   ),
                   TopicCard(
-                    title: AppLocalizations.of(context).translate("science"),
+                    title: AppLocalizations.of(context)!.translate("science"),
                     icon: "science",
                     onTap: () {
                       provider.setAppBarTitle(
-                          AppLocalizations.of(context).translate("science"));
+                          AppLocalizations.of(context)!.translate("science"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByCategoryEvent(category: "science"),
@@ -264,11 +264,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     },
                   ),
                   TopicCard(
-                    title: AppLocalizations.of(context).translate("travel"),
+                    title: AppLocalizations.of(context)!.translate("travel"),
                     icon: "travel",
                     onTap: () {
                       provider.setAppBarTitle(
-                          AppLocalizations.of(context).translate("travel"));
+                          AppLocalizations.of(context)!.translate("travel"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByTopicEvent(topic: "travel"),
@@ -276,11 +276,11 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     },
                   ),
                   TopicCard(
-                    title: AppLocalizations.of(context).translate("fashion"),
+                    title: AppLocalizations.of(context)!.translate("fashion"),
                     icon: "fashion",
                     onTap: () {
                       provider.setAppBarTitle(
-                          AppLocalizations.of(context).translate("fashion"));
+                          AppLocalizations.of(context)!.translate("fashion"));
                       FeedController.addCurrentPage(1);
                       bloc.add(
                         FetchNewsByTopicEvent(topic: "fashion"),

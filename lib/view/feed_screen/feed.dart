@@ -17,10 +17,10 @@ class FeedScreen extends StatefulWidget {
   final bool isFromSearch;
 
   const FeedScreen(
-      {Key key,
-      @required this.articalIndex,
-      @required this.articals,
-      @required this.isFromSearch})
+      {Key? key,
+      required this.articalIndex,
+      required this.articals,
+      required this.isFromSearch})
       : super(key: key);
 
   @override

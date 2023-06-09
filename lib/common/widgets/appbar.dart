@@ -13,7 +13,6 @@ import 'package:inshort_clone/bloc/feed/news_feed_event.dart';
 import 'package:inshort_clone/controller/feed_controller.dart';
 import 'package:inshort_clone/controller/provider.dart';
 import 'package:inshort_clone/global/global.dart';
-import 'package:inshort_clone/routes/rouut.dart';
 import 'package:inshort_clone/style/colors.dart';
 import 'package:inshort_clone/style/text_style.dart';
 
@@ -59,7 +58,7 @@ class CustomAppBar extends StatelessWidget {
                                 ),
                                 Text(
                                   AppLocalizations.of(context)
-                                      .translate("discover"),
+                                      !.translate("discover"),
                                   style: AppTextStyle.appBarTitle,
                                 )
                               ],
@@ -71,9 +70,9 @@ class CustomAppBar extends StatelessWidget {
                             ? value.getAppBarTitle != null
                                 ? value.getAppBarTitle
                                 : AppLocalizations.of(context)
-                                    .translate("my_feed")
+                                    !.translate("my_feed")
                             : AppLocalizations.of(context)
-                                .translate("discover"),
+                                !.translate("discover"),
                         style: AppTextStyle.appBarTitle.copyWith(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
@@ -92,7 +91,7 @@ class CustomAppBar extends StatelessWidget {
                                     value.getAppBarTitle != null
                                         ? value.getAppBarTitle
                                         : AppLocalizations.of(context)
-                                            .translate("my_feed"),
+                                            !.translate("my_feed"),
                                     style: AppTextStyle.appBarTitle,
                                     overflow: TextOverflow.ellipsis,
                                     textDirection: TextDirection.rtl,
